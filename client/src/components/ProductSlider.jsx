@@ -8,7 +8,7 @@ import { Pagination, Navigation } from 'swiper'
 import Product from '../components/Product.jsx'
 
 const ProductSlider = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <Swiper 
       modules={[Pagination, Navigation]} 
