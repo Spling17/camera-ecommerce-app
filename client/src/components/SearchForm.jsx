@@ -4,24 +4,29 @@ import { useNavigate } from 'react-router-dom'
 
 const SearchForm = () => {
   const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState();
-  const handleSerachInput = (e) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleSearchInput = (e) => {
     setSearchTerm(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm > 0) {
+    console.log(searchTerm);
+    if (searchTerm.length > 0) {
       navigate(`/search?query=${searchTerm}`)
+      document.querySelector('input').value = '';
+      setSearchTerm('');
     } else {
       console.log('Please search for something');
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className='w-full relative'>
       <input 
-        onChange={handleSerachInput}
+        onChange={handleSearchInput}
         className='input' 
         type='text' 
         placeholder='Search' />

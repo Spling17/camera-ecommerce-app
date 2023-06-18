@@ -4,7 +4,6 @@ import MainSlider from './MainSlider'
 import PromoImag1 from '../img/promo_img1.png'
 import PromoImag2 from '../img/promo_img2.png'
 
-
 const Hero = () => {
   return (
     <section className='mp-[30px] pt-36 lg:pt-0'>
