@@ -24,7 +24,7 @@ const CategoryNavMobile = ({ setCatNavMobile }) => {
             );
         })}
       </div>
-      CategoryNavMobile
+      {/* CategoryNavMobile */}
     </div>
   )
 }
