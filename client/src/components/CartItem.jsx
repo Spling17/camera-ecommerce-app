@@ -6,6 +6,7 @@ import { CartContext } from '../context/CartContext';
 
 const CartItem = ({ item }) => {
   const {removeFromCart} = useContext(CartContext)
+
   return (
     <div className='flex gap-x-8'>
       <Link to={`product/${item.id}`} className='w-[70px] h-[70px]'>
@@ -27,8 +28,8 @@ const CartItem = ({ item }) => {
           {/* quantity */}
           <div className='flex gap-x-4 mb-2'>
             <Qty item={item} />
-            <div className='text-accent text-xl'>$ {item.attributes.price * item.amount}</div>
           </div>
+            <div className='text-accent text-xl'>$ {item.attributes.price * item.amount}</div>
         </div>
         {/* price */}
           <div>

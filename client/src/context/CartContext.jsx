@@ -52,9 +52,44 @@ useEffect(() => {
   const removeFromCart = (id) => {
     // console.log(`item ${id} removed`);
     const newCart = cart.filter((item) => {
-      return item.id ! == id;
+      return item.id !== id;
     })
+    setCart(newCart);
+  };
+
+const handleInput = (e, id) => {
+  // console.log(e.target.value);
+  // console.log(id);
+  const value = parseInt(e.target.value);
+  const cartItem = cart.find((item) => {
+    return item.id === id;
+  });
+  // console.log(cartItem);
+  if (cartItem) {
+    const newCart = cart.map((item) => {
+      if (item.id === id) {
+        if (isNaN(value)) {
+          setAmount(1)
+          return {...item, amount: 1}
+        } else {
+            setAmount(value);
+            return {...item, amount: value };
+        }
+      } else {
+        return item;
+      }
+    })
+    setCart(newCart)
   }
+  setIsOpen(true);
+  // console.log(cartItem);
+};
+// console.log(cart);
+
+//handle select
+const handleSelect = (e, id) => {
+  console.log(e.target.value);
+}
   
   return (
     <CartContext.Provider 
@@ -64,7 +99,10 @@ useEffect(() => {
         addToCart, 
         cart, 
         removeFromCart, 
-        itemsAmount}}>
+        itemsAmount,
+        handleInput,
+        handleSelect,
+        }}>
       {children}
     </CartContext.Provider>
   );
