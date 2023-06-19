@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import useFetch from '../hooks/useFetch';
 // import useFetch from '../hooks/useFetch'
 
 const Product = ({ product }) => {
-  // console.log(product);
+  console.log(product);
   // console.log(product.attributes.isNew);
   // console.log(product.attributes.image.data.attributes.url);
   return (
@@ -17,7 +18,9 @@ const Product = ({ product }) => {
       <div className='w-full h-[200px] flex items-center justify-center relative'>
         <img
         className='w-[160px] h-[160px] group-hover:scale-90 transition-all' 
-        src={`http://localhost:1337${data[0].attributes.image.data.attributes.url}`} alt="" />
+        src={`http://localhost:1337${product.attributes.image.data.attributes.url}`} alt="" />
+        {/* src={`http://localhost:1337${product.attributes.image.data.attributes.url}`} alt="" /> */}
+        {/* src={`http://localhost:1337${data[0].attributes.image.data.attributes.url}`} alt="" /> */}
       </div>
       <div className="px-6 mb-8 flex flex-col">
       <div className='text-sm text-accent capitalize mb-2'>

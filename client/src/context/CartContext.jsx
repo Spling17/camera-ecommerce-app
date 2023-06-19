@@ -11,7 +11,7 @@ const CartProvider = ({ children }) => {
 
 //cart amount
 useEffect(() => {
-  const amount = cartItem.reduce((a,c) => {
+  const amount = cart.reduce((a,c) => {
     return a + c.amount;
   }, 0);
   // console.log(amount);

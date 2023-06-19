@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import CategoryNav from '../components/CategoryNav'
@@ -12,6 +12,10 @@ const Search = () => {
   //get products based on search term
   const {data} = useFetch(`/products?populate=*&filters[title][$contains]=${searchTerm}`)
   // console.log(data);
+
+  useEffect(() => {
+    console.log('>>>>>>>>',data)
+  },[data])
   return (
     <div className='mb-[30px] pt-40 md:pt-4 xl:pt-0'>
       <div className="container mx-auto">
